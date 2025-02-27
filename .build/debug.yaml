@@ -1,0 +1,81 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<poke-x86_64-apple-macosx15.0-debug.exe>","<poke-x86_64-apple-macosx15.0-debug.module>"]
+  "poke-x86_64-apple-macosx15.0-debug.exe": ["<poke-x86_64-apple-macosx15.0-debug.exe>"]
+  "poke-x86_64-apple-macosx15.0-debug.module": ["<poke-x86_64-apple-macosx15.0-debug.module>"]
+  "test": ["<poke-x86_64-apple-macosx15.0-debug.exe>","<poke-x86_64-apple-macosx15.0-debug.module>"]
+default: "main"
+nodes:
+  "/Users/apple/Documents/ios/poke/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke":
+    is-mutated: true
+commands:
+  "/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke-entitlement.plist"]
+    description: "Write auxiliary file /Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke-entitlement.plist"
+
+  "/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/apple/Documents/ios/poke/Sources/main.swift"]
+    outputs: ["/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/sources"]
+    description: "Write auxiliary file /Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/sources"
+
+  "/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/main.swift.o"]
+    outputs: ["/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.product/Objects.LinkFileList"
+
+  "/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<poke-x86_64-apple-macosx15.0-debug.exe>":
+    tool: phony
+    inputs: ["<poke-x86_64-apple-macosx15.0-debug.exe-CodeSigning>"]
+    outputs: ["<poke-x86_64-apple-macosx15.0-debug.exe>"]
+
+  "<poke-x86_64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/main.swift.o","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/Modules/poke.swiftmodule"]
+    outputs: ["<poke-x86_64-apple-macosx15.0-debug.module>"]
+
+  "C.poke-x86_64-apple-macosx15.0-debug.exe":
+    tool: shell
+    inputs: ["/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/main.swift.o","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.product/Objects.LinkFileList"]
+    outputs: ["/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke"]
+    description: "Linking ./.build/x86_64-apple-macosx/debug/poke"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug","-o","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke","-module-name","poke","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-alias","-Xlinker","_poke_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.5/macosx","-target","x86_64-apple-macosx10.13","-Xlinker","-add_ast_path","-Xlinker","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/Modules/poke.swiftmodule","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.poke-x86_64-apple-macosx15.0-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke-entitlement.plist"]
+    outputs: ["<poke-x86_64-apple-macosx15.0-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/x86_64-apple-macosx/debug/poke"
+    args: ["codesign","--force","--sign","-","--entitlements","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke-entitlement.plist","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke"]
+
+  "C.poke-x86_64-apple-macosx15.0-debug.module":
+    tool: shell
+    inputs: ["/Users/apple/Documents/ios/poke/Sources/main.swift","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/sources"]
+    outputs: ["/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/main.swift.o","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/Modules/poke.swiftmodule"]
+    description: "Compiling Swift Module 'poke' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","poke","-emit-dependencies","-emit-module","-emit-module-path","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/Modules/poke.swiftmodule","-output-file-map","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/output-file-map.json","-incremental","-c","@/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/sources","-I","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/Modules","-target","x86_64-apple-macosx10.13","-enable-batch-mode","-index-store-path","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j16","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","poke_main","-color-diagnostics","-swift-version","6","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","poke"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/apple/Documents/ios/poke/Sources/","/Users/apple/Documents/ios/poke/Package.swift","/Users/apple/Documents/ios/poke/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

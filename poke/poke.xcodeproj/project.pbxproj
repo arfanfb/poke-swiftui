@@ -24,11 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1815689B2D7051060036744D /* poke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = poke.xcodeproj; sourceTree = "<group>"; };
 		18C2EC982D6DB2A1000AF8FD /* poke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = poke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C2ECA82D6DB2A3000AF8FD /* pokeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pokeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C2ECB22D6DB2A3000AF8FD /* pokeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pokeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		18C2ECC92D6DB8E1000AF8FD /* poke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = poke.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -74,13 +72,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1815689D2D7051060036744D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		18C2EC8F2D6DB2A1000AF8FD = {
 			isa = PBXGroup;
 			children = (
@@ -97,13 +88,6 @@
 				18C2EC982D6DB2A1000AF8FD /* poke.app */,
 				18C2ECA82D6DB2A3000AF8FD /* pokeTests.xctest */,
 				18C2ECB22D6DB2A3000AF8FD /* pokeUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		18C2ECCB2D6DB8E1000AF8FD /* Products */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,16 +198,6 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 18C2EC992D6DB2A1000AF8FD /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1815689D2D7051060036744D /* Products */;
-					ProjectRef = 1815689B2D7051060036744D /* poke.xcodeproj */;
-				},
-				{
-					ProductGroup = 18C2ECCB2D6DB8E1000AF8FD /* Products */;
-					ProjectRef = 18C2ECC92D6DB8E1000AF8FD /* poke.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				18C2EC972D6DB2A1000AF8FD /* poke */,

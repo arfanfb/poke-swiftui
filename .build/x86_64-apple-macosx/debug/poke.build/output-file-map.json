@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/master.swiftdeps"
+  },
+  "/Users/apple/Documents/ios/poke/Sources/main.swift": {
+    "dependencies": "/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/main.d",
+    "object": "/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/main.swift.o",
+    "swiftmodule": "/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/apple/Documents/ios/poke/.build/x86_64-apple-macosx/debug/poke.build/main.swiftdeps"
+  }
+}
