@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		181568CF2D70C9C20036744D /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 181568CE2D70C9C20036744D /* Config.xcconfig */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		18C2ECA92D6DB2A3000AF8FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,16 +28,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1815689B2D7051060036744D /* poke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = poke.xcodeproj; sourceTree = "<group>"; };
+		181568CE2D70C9C20036744D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		18C2EC982D6DB2A1000AF8FD /* poke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = poke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C2ECA82D6DB2A3000AF8FD /* pokeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pokeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C2ECB22D6DB2A3000AF8FD /* pokeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pokeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C2ECC92D6DB8E1000AF8FD /* poke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = poke.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		18541A5F2D70D3620056C625 /* Exceptions for "poke" folder in "poke" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 18C2EC972D6DB2A1000AF8FD /* poke */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		18C2EC9A2D6DB2A1000AF8FD /* poke */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				18541A5F2D70D3620056C625 /* Exceptions for "poke" folder in "poke" target */,
+			);
 			path = poke;
 			sourceTree = "<group>";
 		};
@@ -74,16 +91,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1815689D2D7051060036744D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		18C2EC8F2D6DB2A1000AF8FD = {
 			isa = PBXGroup;
 			children = (
+				181568CE2D70C9C20036744D /* Config.xcconfig */,
 				18C2EC9A2D6DB2A1000AF8FD /* poke */,
 				18C2ECAB2D6DB2A3000AF8FD /* pokeTests */,
 				18C2ECB52D6DB2A3000AF8FD /* pokeUITests */,
@@ -216,10 +227,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 1815689D2D7051060036744D /* Products */;
-					ProjectRef = 1815689B2D7051060036744D /* poke.xcodeproj */;
-				},
-				{
 					ProductGroup = 18C2ECCB2D6DB8E1000AF8FD /* Products */;
 					ProjectRef = 18C2ECC92D6DB8E1000AF8FD /* poke.xcodeproj */;
 				},
@@ -238,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181568CF2D70C9C20036744D /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +305,7 @@
 /* Begin XCBuildConfiguration section */
 		18C2ECBA2D6DB2A3000AF8FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 181568CE2D70C9C20036744D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -360,6 +369,7 @@
 		};
 		18C2ECBB2D6DB2A3000AF8FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 181568CE2D70C9C20036744D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -425,6 +435,7 @@
 				DEVELOPMENT_TEAM = K4U56NVNK8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = poke/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -455,6 +466,7 @@
 				DEVELOPMENT_TEAM = K4U56NVNK8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = poke/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

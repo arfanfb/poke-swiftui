@@ -5,8 +5,6 @@ import SwiftUI
 //
 //  Created by Arfan on 27/02/25.
 //
-
-
 struct PokemonListView: View {
     @StateObject private var viewModel = PokemonListViewModel()
     
@@ -51,7 +49,16 @@ struct PokemonListView: View {
                     }
                 }
             }
-            .navigationTitle("Pokédexx")
+            .navigationTitle("Pokédex")            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: FavoritePokemonListView(pokemonList: viewModel.pokemonList)) {
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.red)
+                            .font(.title)
+                    }
+                }
+            }
             .onAppear {
                 if viewModel.pokemonList.isEmpty {
                     viewModel.fetchPokemonList()

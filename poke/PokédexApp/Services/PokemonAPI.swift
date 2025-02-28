@@ -8,7 +8,7 @@ import Foundation
 
 class PokemonAPI {
     static let shared = PokemonAPI()
-    private let baseURL = "https://pokeapi.co/api/v2/"
+    private let baseURL = Constants.baseURL
     
     func fetchPokemonList(limit: Int = 151, completion: @escaping (Result<PokemonList, Error>) -> Void) {
         let urlString = "\(baseURL)pokemon?limit=\(limit)"
